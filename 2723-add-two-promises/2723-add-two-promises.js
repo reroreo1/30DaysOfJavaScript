@@ -5,12 +5,10 @@
  */
 var addTwoPromises = async function(promise1, promise2) {
     var a ;
-    await promise1.then((v) =>{                     
-        a = v
+   await Promise.all([promise1,promise2]).then((v)=>{
+      a = v[0] + v[1];
     })
-     await promise2.then((v) =>{                     
-        a += v
-    })
+    
      var p = new Promise(function(resolve) {
         resolve(a);
     });
